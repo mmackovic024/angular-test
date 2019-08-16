@@ -8,6 +8,7 @@ import { ClockComponent } from './components/clock.component';
 import { DataComponent } from './components/data/data.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InfiniteScrollComponent } from './components/infinite-scroll.component';
+import { MissionComponent } from './components/mission/mission.component';
 
 import { DataService } from './services/data.service';
 
@@ -17,7 +18,8 @@ import { DataService } from './services/data.service';
     ClockComponent,
     DataComponent,
     HeaderComponent,
-    InfiniteScrollComponent
+    InfiniteScrollComponent,
+    MissionComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [DataService],
