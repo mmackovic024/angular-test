@@ -1,0 +1,18 @@
+<infinite-scroll (scrolled)="onScroll()">
+  <div id="data">
+    <div class="item" *ngFor="let item of data">
+      <img alt="Mission patch" src="{{ item.links.mission_patch_small }}" />
+      <div>
+        <h3 [ngStyle]="{ color: item.launch_success ? 'green' : 'red' }">
+          #{{ item.flight_number }}
+        </h3>
+        <h4>{{ item.mission_name }}</h4>
+        <p>{{ item.launch_date_local | date: 'MMM dd, yyyy' }}</p>
+        <p>{{ item.rocket.rocket_name }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- <ng-template #loading> -->
+  <h3 *ngIf="isLoading">Loading...</h3>
+  <!-- </ng-template> -->
+</infinite-scroll>
