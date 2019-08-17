@@ -11,7 +11,7 @@ export class DataComponent implements OnInit {
   private hasMore: boolean = true;
   private itemsPerPage: number = 12;
   isLoading: boolean;
-  data: object[];
+  data: any;
 
   constructor(private dataService: DataService) {}
 
@@ -26,9 +26,13 @@ export class DataComponent implements OnInit {
   getMore() {
     this.isLoading = true;
     if (window.innerWidth < 1100) this.itemsPerPage = 6;
-    this.dataService.getData(this.page, this.itemsPerPage).subscribe(items => {
+    this.dataService.getAll(this.page, this.itemsPerPage).subscribe(items => {
       if (items.length < this.itemsPerPage) this.hasMore = !this.hasMore;
       this.data ? (this.data = this.data.concat(items)) : (this.data = items);
+      this.data.sort(
+        (a: { flight_number: number }, b: { flight_number: number }) =>
+          a.flight_number - b.flight_number
+      );
       this.isLoading = false;
     });
     ++this.page;
