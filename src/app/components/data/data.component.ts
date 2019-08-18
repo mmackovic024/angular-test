@@ -35,14 +35,14 @@ export class DataComponent implements OnInit {
   constructor(private dataService: DataService, private data: DataStore) {}
 
   ngOnInit() {
-    if (!this.data.launches) {
-      this.getMore();
-    }
     if (!this.data.nextLaunch) {
       this.dataService.getNext().subscribe(item => {
         this.data.nextLaunch = item;
         this.data.nextLaunchTime = this.data.nextLaunch.launch_date_unix * 1000;
       });
+    }
+    if (!this.data.launches) {
+      this.getMore();
     }
   }
 
