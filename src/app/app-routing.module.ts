@@ -5,7 +5,8 @@ import { MissionComponent } from './components/mission/mission.component';
 
 const routes: Routes = [
   { path: '', component: DataComponent },
-  { path: 'mission/:id', component: MissionComponent }
+  { path: 'mission/:id', component: MissionComponent },
+  { path: '**', component: DataComponent }
 ];
 
 @NgModule({

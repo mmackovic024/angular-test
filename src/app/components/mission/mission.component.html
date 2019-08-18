@@ -7,7 +7,7 @@
     <img alt="Mission patch" src="{{ launch.links.mission_patch_small }}" />
     <div>
       <h3>Mission name: {{ launch.mission_name }}</h3>
-      <p>Launch date: {{ launch.launch_date_local | date: 'MMM dd, yyyy' }}</p>
+      <p>Launch local date: {{ launch.launch_date_local | date: 'MMM dd, yyyy' }}</p>
       <p>Launch site: {{ launch.launch_site.site_name_long }}</p>
       <p>
         Launch success:

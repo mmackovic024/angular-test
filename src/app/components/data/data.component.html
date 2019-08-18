@@ -1,6 +1,7 @@
+<app-next-launch></app-next-launch>
 <infinite-scroll (scrolled)="onScroll()">
-  <div id="data">
-    <div *ngFor="let item of data">
+  <div id="data" [@listStagger]="data.launches">
+    <div *ngFor="let item of data.launches">
       <a class="item" [routerLink]="['/mission', item.flight_number]">
         <img alt="Mission patch" src="{{ item.links.mission_patch_small }}" />
         <div>
