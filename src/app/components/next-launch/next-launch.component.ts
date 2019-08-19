@@ -10,7 +10,7 @@ export class NextLaunchComponent implements OnInit, OnDestroy {
   time: number;
   private timer;
 
-  constructor(private data: DataStore) {}
+  constructor(public data: DataStore) {}
 
   ngOnInit() {
     this.setCurrentTime();

@@ -32,7 +32,7 @@ export class DataComponent implements OnInit {
   private itemsPerPage: number = 12;
   isLoading: boolean;
 
-  constructor(private dataService: DataService, private data: DataStore) {}
+  constructor(private dataService: DataService, public data: DataStore) {}
 
   ngOnInit() {
     // fetches data for next launch on top of the home page only if there is no data already

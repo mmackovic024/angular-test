@@ -10,7 +10,7 @@ import { DataStore } from '../../services/data.store';
 })
 export class MissionComponent implements OnInit {
   id: number;
-  launch: object;
+  launch: any;
 
   constructor(
     private route: ActivatedRoute,
