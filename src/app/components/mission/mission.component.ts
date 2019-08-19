@@ -22,8 +22,10 @@ export class MissionComponent implements OnInit {
 
   ngOnInit() {
     if (this.data.launches) {
+      // find data for mission if mission page is visited by clicking link on home page
       this.launch = this.data.launches.find(item => item.flight_number == this.id);
     } else {
+      // fetch data for one mission if mission page is visited by typing URL
       this.dataService.getOne(this.id).subscribe(item => (this.launch = item));
     }
   }

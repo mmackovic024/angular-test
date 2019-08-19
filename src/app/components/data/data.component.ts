@@ -35,29 +35,41 @@ export class DataComponent implements OnInit {
   constructor(private dataService: DataService, private data: DataStore) {}
 
   ngOnInit() {
+    // fetches data for next launch on top of the home page only if there is no data already
     if (!this.data.nextLaunch) {
       this.dataService.getNext().subscribe(item => {
         this.data.nextLaunch = item;
         this.data.nextLaunchTime = this.data.nextLaunch.launch_date_unix * 1000;
       });
     }
+
+    // fetches data only if there is no data already
     if (!this.data.launches) {
       this.getMore();
     }
   }
 
   onScroll() {
+    // prevents HTTP request if there is no more data to fetch
     if (this.data.hasMore) this.getMore();
   }
 
   getMore() {
     this.isLoading = true;
+
+    // on smaller screens it fetches smaller chunks of data
     if (window.innerWidth < 1100) this.itemsPerPage = 6;
     this.dataService.getAll(this.data.page, this.itemsPerPage).subscribe(items => {
-      if (items.length < this.itemsPerPage) this.data.hasMore = !this.data.hasMore;
+      // checks if there is more data to fetch
+      if (items.length < this.itemsPerPage) this.data.hasMore = false;
+
+      // if there already exists some data then fetched data is added to existing data
       this.data.launches
         ? (this.data.launches = this.data.launches.concat(items))
         : (this.data.launches = items);
+
+      // sometimes second HTTP req finishes before first one
+      // this sorts data by flight number
       this.data.launches.sort(
         (a: { flight_number: number }, b: { flight_number: number }) =>
           a.flight_number - b.flight_number
