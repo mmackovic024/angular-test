@@ -13,10 +13,10 @@ import { DataStore } from '../../services/data.store';
         query(
           ':enter',
           [
-            style({ opacity: 0, transform: 'translateX(-15px)' }),
+            style({ opacity: 0, transform: 'translateX(-25px)' }),
             stagger(
-              '50ms',
-              animate('550ms ease-out', style({ opacity: 1, transform: 'translateX(0px)' }))
+              '10ms',
+              animate('200ms ease-out', style({ opacity: 1, transform: 'translateX(0px)' }))
             )
           ],
           { optional: true }

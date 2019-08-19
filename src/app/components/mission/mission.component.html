@@ -21,10 +21,10 @@
     <div>
       <h3>Links</h3>
       <a href="{{ launch.links.video_link }}" target="_blank" rel="noopener noreferer">
-        <img class="icon" src="../../../assets/youtube.svg" />
+        <img class="icon" src="../../../assets/images/youtube.svg" />
       </a>
       <a href="{{ launch.links.wikipedia }}" target="_blank" rel="noopener noreferer">
-        <img class="icon" src="../../../assets/wikipedia.svg" />
+        <img class="icon" src="../../../assets/images/wikipedia.svg" />
       </a>
     </div>
   </div>
@@ -33,7 +33,7 @@
     <img alt="Photo 2" src="{{ launch.links.flickr_images[1] }}" />
     <img alt="Photo 3" src="{{ launch.links.flickr_images[2] }}" />
   </div>
-  <p *ngIf="launch.links.flickr_images.length <= 0" style="margin-top: 6rem">
+  <p *ngIf="launch.links.flickr_images.length <= 0">
     No gallery available
   </p>
 </div>
