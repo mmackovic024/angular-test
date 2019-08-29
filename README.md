@@ -6,3 +6,5 @@ SpaceXdata API integration with Angular 8
 - Angular routing
 - Infinite scrolling
 - Custom pipe for countdown timer
+
+[Live app](https://mmackovic024.github.io/angular-test/)
